@@ -1,3 +1,5 @@
+import time
+
 
 class PageRegistration:
     def __init__(self, driver):
@@ -23,6 +25,10 @@ class PageRegistration:
         self.driver.find_element_by_xpath(self.terms_and_conditions).click()
         self.driver.find_element_by_id(self.password).send_keys('Ktbspa2')
         self.driver.find_element_by_id(self.confirm_password).send_keys('Ktbspa2')
+        captcha_val = input('Please enter the captcha value') # se solicita colocar los valores del captcha manualmente
+        self.driver.find_element_by_id('core__protected_modules_user_yiiForm_RegistrationForm_captcha')\
+            .sendkeys(captcha_val)
+        time.sleep(5)
         self.driver.find_element_by_xpath(self.finish_registration).click()
 
     def complete_registration_with_phone(self):

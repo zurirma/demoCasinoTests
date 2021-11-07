@@ -28,8 +28,8 @@ class TestsRegistration:
 
     """En las pruebas de la pagina registration nos encontramos con que hay un captcha, el cual no se puede automatizar.  La idea 
     de que exista un captcha es de que el mismo no pueda ser descifrado por una maquina.  Usualmente ante esto se le solicita al equipo de devs que en el
-    ambiente de pruebas esta validacion no exista.  Por lo anteriormente expuesto, en este environment los tests de registro no pueden ser 
-    completados exitosamente"""
+    ambiente de pruebas esta validacion no exista.  En este codigo se solicita que se coloque manualmente los digitos del captcha simple para
+    poder culminar el test exitosamente."""
 
     def test_validate_registration_with_phone_captcha_field_empty_cannot_be_succesful(self, access_to_registration_page):
         self.page_registration.complete_registration_with_phone()
