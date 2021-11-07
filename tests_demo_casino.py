@@ -9,6 +9,13 @@ class TestsDemoCasino:
         self.driver.implicitly_wait(10)
         self.driver.get('https://demo.casino/')
 
-    def test_1(self):
-        assert True
+    def test_verify_access_to_registration_page(self):
+        self.driver.find_element_by_xpath('/html/body/div[1]/header/div/div[2]/div[2]/a[2]').click()
+        title = self.driver.find_element_by_class_name('page__title').text
+        assert title == 'SIGN UP'
+
+    def teardown(self):
+        self.driver.close()
+        self.driver.quit()
+
 
